@@ -35,4 +35,15 @@ public class Player : MonoBehaviour {
         //give the velocity to our rigid body
         physicsBody.velocity = velocity;
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        //Check if the object we bumped into is an enemy
+        if (collision.collider.GetComponent<Enemy>())
+        {
+            //Die
+            Destroy(gameObject);
+        }
+    }
 }
